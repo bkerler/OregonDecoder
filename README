@@ -1,0 +1,16 @@
+Scientific Oregon V1/V2 Decoder
+-------------------------------
+(c) Jan 2015 by B. Kerler
+
+
+HowTo :
+-------
+
+1. Install GnuRadio 3.7 or higher
+2. "gnuradio-companion rx_ask.grc"
+3. "mkfifo /tmp/fifo" if fifo doesn't yet exist
+4. python OregonDecoder.py /tmp/fifo"
+5. Select appropriate Decoder Version from Tab or use any data rate
+   for custom ASK-Decoders
+
+If Decoding fails, try to decrease/increate gain value.

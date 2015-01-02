@@ -1,0 +1,39 @@
+//--------------------------------------
+//--- 010 Editor v6.0 Script File
+//
+// File:
+// Author:
+// Revision:
+// Purpose:
+//--------------------------------------
+
+int64 opos=GetCursorPos();
+int64 pos=0;
+int i=0,m=0;
+unsigned int val=0;
+unsigned char tmp=0;
+Printf("\n");
+int bitcount=0;
+
+string bitstr="";
+string bytestr="";
+string tmpstr="";
+
+for (m=0;m<0x30;m++)
+{
+    val=0;
+    bitcount=0;
+    for (i=0;i<8;i+=2)
+    {
+        pos=opos+(m*8)+i+1;
+        tmp=ReadByte(pos);
+        SPrintf(tmpstr,"%d",tmp);
+        bitstr=bitstr+tmpstr;
+        val+=tmp<<bitcount;
+        bitcount=bitcount+1;
+    }
+    SPrintf(tmpstr,"%01X",val);
+    bytestr+=tmpstr;
+}
+Printf(bitstr+"\n");
+Printf(bytestr+"\n");
